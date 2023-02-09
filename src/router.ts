@@ -6,4 +6,4 @@ RouterInstance.get('/users');
 
 RouterInstance.get('/products');
 
-RouterInstance.post('/value');
+RouterInstance.post('/value/:userid');
