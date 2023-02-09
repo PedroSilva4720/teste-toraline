@@ -1,14 +1,5 @@
 import { axiosInstance } from './axios';
-
-type User = {
-  name: string;
-  tax: number;
-};
-
-type Product = {
-  name: string;
-  price: number;
-};
+import { User, Product } from './index';
 
 export class Repositories {
   async listUsers() {
@@ -27,23 +18,19 @@ export class Repositories {
     return products;
   }
 
-  async getBudgetValue(userId: number, productsIds: number[]) {
+  async getUserById(userId: number) {
     const user: User = await axiosInstance
       .get(`/users/${userId}`)
       .then(data => data.data);
 
-    const products: Product[] = await Promise.all(
-      productsIds.map(
-        async id =>
-          await axiosInstance.get(`/products/${id}`).then(data => data.data)
-      )
-    );
+    return user;
+  }
 
-    const value = products.reduce(
-      (amount, current) => (current.price * user.tax) / 100 + amount,
-      0
-    );
+  async getProductById(productId: number) {
+    const product: Product = await axiosInstance
+      .get(`/products/${productId}`)
+      .then(data => data.data);
 
-    return value;
+    return product;
   }
 }
