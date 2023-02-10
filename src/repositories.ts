@@ -1,6 +1,5 @@
-import { InternalServerError } from './errors';
 import { axiosInstance } from './axios';
-import { User, Product } from './index';
+import { User, Product } from './index.d';
 
 export class Repositories {
   async listUsers() {
