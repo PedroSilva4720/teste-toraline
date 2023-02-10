@@ -1,4 +1,4 @@
-import { User, Product } from './index';
+import { User, Product } from './index.d';
 import { Request, Response } from 'express';
 import { Models } from './models';
 
