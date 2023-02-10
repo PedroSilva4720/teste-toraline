@@ -1,3 +1,6 @@
 import { server } from './server';
+import * as dotenv from 'dotenv';
 
-server.listen(process.env.PORT || 9002);
+dotenv.config();
+
+server.listen(process.env.PORT || 9001);
