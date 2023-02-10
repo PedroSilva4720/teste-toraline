@@ -47,15 +47,15 @@ O código fonte segue o princípio de responsabilidade única(SRP), onde cada m�
 
 - ### Controllers
 >
->O módulo Controllers é responsável por obter os dados enviados pela requisição e enviar as >resposta. Após obter os dados, o módulo passa todos ao Model. Controllers está diretamente >relacionado ao framework utilizado, o express.  
+>O módulo Controllers é responsável por obter os dados enviados pela requisição e enviar as resposta. Após obter os dados, o módulo passa todos ao Model. Controllers está diretamente relacionado ao framework utilizado, o express.  
 
-- ### Model
+- ### Models
 >
->Model utiliza o javascript vanilla para processamento de dados e validações, caso necessário. >Durante o processamento dos dados o módulo pode chamar Repositories, para conexão com o banco de >dados.  
+>Model utiliza o javascript vanilla para processamento de dados e validações, caso necessário. Durante o processamento dos dados o módulo pode chamar Repositories, para conexão com o banco de dados.  
 
 - ### Repositories
 >
->É responsável pela conexão com o banco de dados, sendo exclusivo nessa função. Hoje utiliza o >axios >para fazer as requisições e retornar os dados.  
+>É responsável pela conexão com o banco de dados, sendo exclusivo nessa função. Hoje utiliza o axios para fazer as requisições e retornar os dados.  
 
 - ### Testes
 >
@@ -63,4 +63,4 @@ O código fonte segue o princípio de responsabilidade única(SRP), onde cada m�
 
 - ### Errors
 >
->Errors contem classes que disparam erros caso algo que não siga o comportamento padrão ocorra. Os >erros são capturados pelo Middleware, que traz ao usuário uma resposta mais amigável e não derruba >a aplicação em caso de algum erro.  
+>Errors contem classes que disparam erros caso algo que não siga o comportamento padrão ocorra. Os erros são capturados pelo Middleware, que traz ao usuário uma resposta mais amigável e não derruba a aplicação em caso de algum erro.  
