@@ -43,7 +43,7 @@ O código fonte segue o princípio de responsabilidade única(SRP), onde cada m�
 
 - ### Router
 >
->O módulo Router é responsável pelo roteamento da aplicação e divisão das tarefas. Router chama as >funções de Controllers para separar os dados.  
+>O módulo Router é responsável pelo roteamento da aplicação e divisão das tarefas. Router chama as funções de Controllers para separar os dados.  
 
 - ### Controllers
 >
