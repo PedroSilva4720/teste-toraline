@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "test-toraline",
-    "description": "Swagger documentation for test-toraline api",
+    "description": "Documentação Swagger para api teste-toraline",
     "contact": {
       "name": "Pedro Torres",
       "email": "pedro.silva4720@gmail.com"
@@ -12,9 +12,9 @@
   "paths": {
     "/users": {
       "get": {
-        "summary": "List users",
-        "tags": ["user"],
-        "description": "List all users in database",
+        "summary": "Listar usuários",
+        "tags": ["Usuários"],
+        "description": "Lista todos os usuários na base de dados.",
 
         "responses": {
           "200": {
@@ -28,17 +28,17 @@
                     "properties": {
                       "id": {
                         "type": "integer",
-                        "description": "user Id"
+                        "description": "Id do usuário"
                       },
                       "name": {
                         "type": "string",
-                        "description": "user name"
+                        "description": "Nome do usuário"
                       },
                       "tax": {
                         "type": "integer",
                         "minimum": 10,
                         "maximum": 200,
-                        "description": "user tax"
+                        "description": "Taxa do usuário"
                       }
                     }
                   }
@@ -47,16 +47,16 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro interno do servidor"
           }
         }
       }
     },
     "/products": {
       "get": {
-        "summary": "List products",
-        "tags": ["product"],
-        "description": "List all products in database",
+        "summary": "Listar produtos",
+        "tags": ["Produtos"],
+        "description": "Lista todos os produtos na base de dados.",
 
         "responses": {
           "200": {
@@ -70,17 +70,17 @@
                     "properties": {
                       "id": {
                         "type": "integer",
-                        "description": "product Id"
+                        "description": "Id do produto."
                       },
                       "name": {
                         "type": "string",
-                        "description": "product name"
+                        "description": "Nome do produto."
                       },
                       "price": {
                         "type": "integer",
                         "minimum": 10,
                         "maximum": 15000,
-                        "description": "product price"
+                        "description": "Preço do produto."
                       }
                     }
                   }
@@ -89,14 +89,14 @@
             }
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro interno do servidor."
           }
         }
       }
     },
     "/value/{userId}": {
       "post": {
-        "summary": "Get budget value",
+        "summary": "Retorna o valor do orçamento",
         "parameters": [
           {
             "in": "path",
@@ -105,11 +105,11 @@
               "type": "integer"
             },
             "required": true,
-            "description": "the id of user"
+            "description": "Id do usuário."
           }
         ],
-        "tags": ["budget"],
-        "description": "passing user id and products ids, return the budget value",
+        "tags": ["Orçamento"],
+        "description": "Retorna o valor do orçamento com base no id do usuário e os ids dos produtos listados.",
         "requestBody": {
           "required": true,
           "content": {
@@ -119,7 +119,7 @@
                 "properties": {
                   "productsIds": {
                     "type": "array",
-                    "description": "Array of products ids",
+                    "description": "Array de ids dos produtos.",
                     "items": {
                       "type": "number"
                     }
@@ -139,7 +139,7 @@
                   "properties": {
                     "value": {
                       "type": "number",
-                      "description": "the budget value"
+                      "description": "O valor do orçamento."
                     }
                   }
                 }
@@ -147,14 +147,19 @@
             }
           },
           "400": {
-            "description": "Bad request, verify if user id and products ids are correct"
+            "description": "Erro no request, confira os dados de usuário e dos produtos."
           },
           "500": {
-            "description": "Internal server error"
+            "description": "Erro interno do servidor."
           }
         }
       }
     }
   },
-  "servers": [{ "url": "http://localhost:9001", "description": "Dev server" }]
+  "servers": [
+    {
+      "url": "http://localhost:9001",
+      "description": "Servidor de desenvolvimento"
+    }
+  ]
 }
