@@ -1,3 +1,4 @@
+import { BadRequestError } from './errors';
 import { Product, User } from './index.d';
 import { Repositories } from './repositories';
 export class Models {
@@ -18,6 +19,14 @@ export class Models {
   }
 
   async getBudgetValue(userId: number, productsIds: number[]) {
+    if (!productsIds.every(item => typeof item === 'number')) {
+      throw new BadRequestError('Invalid product data');
+    }
+
+    if (Number.isNaN(Number(userId))) {
+      throw new BadRequestError('Invalid user data');
+    }
+
     const Repository = new Repositories();
 
     const user: User = await Repository.getUserById(userId);

@@ -1,3 +1,4 @@
+import { InternalServerError } from './errors';
 import { axiosInstance } from './axios';
 import { User, Product } from './index';
 
