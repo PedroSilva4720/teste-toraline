@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "test-toraline",
+    "description": "Documentação Swagger para api teste-toraline",
+    "contact": {
+      "name": "Pedro Torres",
+      "email": "pedro.silva4720@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Listar usuários",
+        "tags": ["Usuários"],
+        "description": "Lista todos os usuários na base de dados.",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Id do usuário"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do usuário"
+                      },
+                      "tax": {
+                        "type": "integer",
+                        "minimum": 10,
+                        "maximum": 200,
+                        "description": "Taxa do usuário"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "Listar produtos",
+        "tags": ["Produtos"],
+        "description": "Lista todos os produtos na base de dados.",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "Id do produto."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome do produto."
+                      },
+                      "price": {
+                        "type": "integer",
+                        "minimum": 10,
+                        "maximum": 15000,
+                        "description": "Preço do produto."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor."
+          }
+        }
+      }
+    },
+    "/value/{userId}": {
+      "post": {
+        "summary": "Retorna o valor do orçamento",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Id do usuário."
+          }
+        ],
+        "tags": ["Orçamento"],
+        "description": "Retorna o valor do orçamento com base no id do usuário e os ids dos produtos listados.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "productsIds": {
+                    "type": "array",
+                    "description": "Array de ids dos produtos.",
+                    "items": {
+                      "type": "number"
+                    },
+                    "example": [1, 2, 3]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "number",
+                      "description": "O valor do orçamento."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro no request, confira os dados de usuário e dos produtos."
+          },
+          "500": {
+            "description": "Erro interno do servidor."
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9001",
+      "description": "Servidor de desenvolvimento"
+    }
+  ]
+}

@@ -5,8 +5,8 @@
         "target": "ES6",
         "noEmitOnError": true,
         "esModuleInterop": true,
-        "moduleResolution": "node"
-
+        "moduleResolution": "node",
+        "resolveJsonModule": true
     },
     "include": [
         "src/**/*"
