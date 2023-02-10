@@ -15,7 +15,6 @@
         "summary": "Listar usuários",
         "tags": ["Usuários"],
         "description": "Lista todos os usuários na base de dados.",
-
         "responses": {
           "200": {
             "description": "Ok",
@@ -57,7 +56,6 @@
         "summary": "Listar produtos",
         "tags": ["Produtos"],
         "description": "Lista todos os produtos na base de dados.",
-
         "responses": {
           "200": {
             "description": "Ok",
@@ -122,7 +120,8 @@
                     "description": "Array de ids dos produtos.",
                     "items": {
                       "type": "number"
-                    }
+                    },
+                    "example": [1, 2, 3]
                   }
                 }
               }
